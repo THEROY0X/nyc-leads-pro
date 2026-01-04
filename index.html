@@ -3,146 +3,643 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NYC Leads Pro - Real Estate Lead Generation</title>
+<title>NYC Leads Pro - Premium Real Estate Lead Generation Platform</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
-.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px; text-align: center; }
-.hero h1 { font-size: 48px; margin-bottom: 20px; }
-.hero p { font-size: 24px; margin-bottom: 40px; }
-.stats { display: flex; justify-content: center; gap: 60px; margin: 40px 0; flex-wrap: wrap; }
-.stat { text-align: center; }
-.stat-number { font-size: 36px; font-weight: bold; }
-.btn { background: white; color: #667eea; padding: 16px 40px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-.features { padding: 80px 20px; background: white; text-align: center; }
-.features h2 { font-size: 36px; margin-bottom: 60px; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-.feature { padding: 30px; }
-.feature h3 { font-size: 20px; margin: 20px 0 12px; }
-.pricing { padding: 80px 20px; background: #f9fafb; text-align: center; }
-.pricing h2 { font-size: 36px; margin-bottom: 60px; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
-.pricing-card { background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 40px; position: relative; }
-.pricing-card.featured { border-color: #3b82f6; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2); transform: scale(1.05); }
-.badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #3b82f6; color: white; padding: 6px 20px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-.price { font-size: 48px; font-weight: bold; margin: 20px 0 30px; }
-.price span { font-size: 18px; font-weight: normal; color: #6b7280; }
-ul { list-style: none; margin-bottom: 30px; text-align: left; }
-li { padding: 12px 0; }
-.btn-pricing { width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-.btn-pricing.primary { background: #3b82f6; color: white; }
-.btn-pricing.secondary { background: #f3f4f6; color: #1f2937; }
-.footer { background: #1f2937; color: white; padding: 40px 20px; text-align: center; }
-.container { max-width: 1200px; margin: 0 auto; }
-.header { background: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; }
-.logo { font-size: 24px; font-weight: bold; }
+
+body { 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+  overflow-x: hidden;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+/* Smooth Scroll */
+html { scroll-behavior: smooth; }
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 20px 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+  top: -200px;
+  right: -200px;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.3) 0%, transparent 70%);
+  bottom: -150px;
+  left: -150px;
+  animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.hero-content {
+  max-width: 1400px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-subtitle {
+  font-size: 28px;
+  margin-bottom: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 60px 0;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.stat {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.stat-number {
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 18px 48px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-note {
+  margin-top: 24px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Features Section */
+.features {
+  padding: 120px 40px;
+  background: #0a0a0a;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 80px;
+  background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+}
+
+.feature-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* Pricing Section */
+.pricing {
+  padding: 120px 40px;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  padding: 50px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
+}
+
+.pricing-card.featured {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 2px solid #667eea;
+  transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.08) translateY(-10px);
+}
+
+.badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+}
+
+.pricing-card h3 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 64px;
+  font-weight: 800;
+  margin: 30px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.price span {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 40px 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 16px 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  color: #667eea;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btn-pricing {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-pricing.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-pricing.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+}
+
+.btn-pricing.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-pricing.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer */
+.footer {
+  background: #0a0a0a;
+  padding: 60px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.footer a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #764ba2;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .hero p { font-size: 18px; }
+  .hero h1 { font-size: 42px; }
+  .hero-subtitle { font-size: 20px; }
   .stats { gap: 30px; }
+  .section-title { font-size: 36px; }
   .pricing-card.featured { transform: scale(1); }
+  .cta-buttons { flex-direction: column; }
+  .header .container { padding: 0 20px; }
+  .logo { font-size: 22px; }
+}
+
+/* Scroll Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 </head>
 <body>
+
 <header class="header">
-<div class="logo">🏢 NYC Leads Pro</div>
-<a href="#pricing" class="btn" style="padding: 10px 24px; font-size: 16px;">Start Free Trial</a>
+  <div class="container">
+    <div class="logo">
+      <span class="logo-icon">🏢</span>
+      <span>NYC Leads Pro</span>
+    </div>
+    <a href="#pricing" class="nav-btn">Start Free Trial</a>
+  </div>
 </header>
 
 <section class="hero">
-<div class="container">
-<h1>Get 100+ Verified NYC Real Estate Leads Daily</h1>
-<p>Stop wasting money on Zillow. Get better leads for less.</p>
-<div class="stats">
-<div class="stat"><div class="stat-number">500+</div><div>Active Agents</div></div>
-<div class="stat"><div class="stat-number">50K+</div><div>Leads Delivered</div></div>
-<div class="stat"><div class="stat-number">95%</div><div>Satisfaction Rate</div></div>
-</div>
-<a href="#pricing" class="btn">Start Free Trial →</a>
-<p style="margin-top: 16px; font-size: 14px;">No credit card required • 7-day free trial • Cancel anytime</p>
-</div>
+  <div class="hero-content">
+    <h1>Get 100+ Verified NYC<br>Real Estate Leads Daily</h1>
+    <p class="hero-subtitle">Stop wasting money on Zillow. Get better leads for less.</p>
+    
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Active Agents</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Leads Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="#pricing" class="btn-primary">Start Free Trial →</a>
+      <a href="#features" class="btn-secondary">Learn More</a>
+    </div>
+    
+    <p class="hero-note">No credit card required • 7-day free trial • Cancel anytime</p>
+  </div>
 </section>
 
-<section class="features">
-<div class="container">
-<h2>Why Choose NYC Leads Pro?</h2>
-<div class="features-grid">
-<div class="feature">
-<div style="font-size: 48px;">⚡</div>
-<h3>Fresh Leads Daily</h3>
-<p>New leads updated every morning. Never work with stale data again.</p>
-</div>
-<div class="feature">
-<div style="font-size: 48px;">✅</div>
-<h3>Verified Contacts</h3>
-<p>Every lead includes verified email and phone numbers. No more bounces.</p>
-</div>
-<div class="feature">
-<div style="font-size: 48px;">🎯</div>
-<h3>Neighborhood Targeting</h3>
-<p>Filter by specific NYC neighborhoods. Focus on your target market.</p>
-</div>
-<div class="feature">
-<div style="font-size: 48px;">📈</div>
-<h3>Lead Scoring</h3>
-<p>AI-powered scoring helps you prioritize hot leads first.</p>
-</div>
-</div>
-</div>
+<section class="features" id="features">
+  <h2 class="section-title">Why Choose NYC Leads Pro?</h2>
+  <div class="features-grid">
+    <div class="feature-card fade-in">
+      <div class="feature-icon">⚡</div>
+      <h3>Fresh Leads Daily</h3>
+      <p>New leads updated every morning. Never work with stale data again. Get real-time access to the hottest opportunities.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">✅</div>
+      <h3>Verified Contacts</h3>
+      <p>Every lead includes verified email and phone numbers. No more bounces or dead ends. Connect directly with decision makers.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🎯</div>
+      <h3>Neighborhood Targeting</h3>
+      <p>Filter by specific NYC neighborhoods. Focus on your target market with precision. Manhattan, Brooklyn, Queens, and more.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">📈</div>
+      <h3>AI Lead Scoring</h3>
+      <p>AI-powered scoring helps you prioritize hot leads first. Maximize your time and close more deals faster.</p>
+    </div>
+  </div>
 </section>
 
 <section class="pricing" id="pricing">
-<div class="container">
-<h2>Simple, Transparent Pricing</h2>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h3>Starter</h3>
-<div class="price">$99<span>/month</span></div>
-<ul>
-<li>✓ 100 leads/month</li>
-<li>✓ All neighborhoods</li>
-<li>✓ CSV export</li>
-<li>✓ Email support</li>
-<li>✓ 7-day free trial</li>
-</ul>
-<button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
-</div>
-<div class="pricing-card featured">
-<div class="badge">MOST POPULAR</div>
-<h3>Professional</h3>
-<div class="price">$299<span>/month</span></div>
-<ul>
-<li>✓ 500 leads/month</li>
-<li>✓ Advanced filters</li>
-<li>✓ API access</li>
-<li>✓ CRM integrations</li>
-<li>✓ Priority support</li>
-</ul>
-<button class="btn-pricing primary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
-</div>
-<div class="pricing-card">
-<h3>Enterprise</h3>
-<div class="price">Custom</div>
-<ul>
-<li>✓ Unlimited leads</li>
-<li>✓ Custom scraping</li>
-<li>✓ Dedicated manager</li>
-<li>✓ White-label option</li>
-<li>✓ SLA guarantee</li>
-</ul>
-<button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com for enterprise pricing!')">Contact Sales</button>
-</div>
-</div>
-</div>
+  <h2 class="section-title">Simple, Transparent Pricing</h2>
+  <div class="pricing-grid">
+    <div class="pricing-card fade-in">
+      <h3>Starter</h3>
+      <div class="price">$99<span>/month</span></div>
+      <ul class="pricing-features">
+        <li>100 leads/month</li>
+        <li>All NYC neighborhoods</li>
+        <li>CSV export</li>
+        <li>Email support</li>
+        <li>7-day free trial</li>
+      </ul>
+      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
+    </div>
+    
+    <div class="pricing-card featured fade-in">
+      <div class="badge">MOST POPULAR</div>
+      <h3>Professional</h3>
+      <div class="price">$299<span>/month</span></div>
+      <ul class="pricing-features">
+        <li>500 leads/month</li>
+        <li>Advanced filters</li>
+        <li>API access</li>
+        <li>CRM integrations</li>
+        <li>Priority support</li>
+        <li>Lead refresh guarantee</li>
+      </ul>
+      <button class="btn-pricing primary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
+    </div>
+    
+    <div class="pricing-card fade-in">
+      <h3>Enterprise</h3>
+      <div class="price">Custom</div>
+      <ul class="pricing-features">
+        <li>Unlimited leads</li>
+        <li>Custom scraping</li>
+        <li>Dedicated account manager</li>
+        <li>White-label option</li>
+        <li>SLA guarantee</li>
+        <li>Custom integrations</li>
+      </ul>
+      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com for enterprise pricing!')">Contact Sales</button>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
-<div class="container">
-<p>© 2024 NYC Leads Pro. All rights reserved.</p>
-<p style="margin-top: 10px;">Contact: henrykevil40@gmail.com</p>
-</div>
+  <p>© 2026 NYC Leads Pro. All rights reserved.</p>
+  <p>Contact: <a href="mailto:henrykevil40@gmail.com">henrykevil40@gmail.com</a></p>
+  <p style="margin-top: 20px; font-size: 14px;">Built with ❤️ for NYC real estate professionals</p>
 </footer>
+
+<script>
+// Scroll Animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
