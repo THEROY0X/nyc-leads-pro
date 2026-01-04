@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYC Leads Pro - Real Estate Lead Generation</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px; text-align: center; }
+.hero h1 { font-size: 48px; margin-bottom: 20px; }
+.hero p { font-size: 24px; margin-bottom: 40px; }
+.stats { display: flex; justify-content: center; gap: 60px; margin: 40px 0; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-number { font-size: 36px; font-weight: bold; }
+.btn { background: white; color: #667eea; padding: 16px 40px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.features { padding: 80px 20px; background: white; text-align: center; }
+.features h2 { font-size: 36px; margin-bottom: 60px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+.feature { padding: 30px; }
+.feature h3 { font-size: 20px; margin: 20px 0 12px; }
+.pricing { padding: 80px 20px; background: #f9fafb; text-align: center; }
+.pricing h2 { font-size: 36px; margin-bottom: 60px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+.pricing-card { background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 40px; position: relative; }
+.pricing-card.featured { border-color: #3b82f6; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2); transform: scale(1.05); }
+.badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #3b82f6; color: white; padding: 6px 20px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+.price { font-size: 48px; font-weight: bold; margin: 20px 0 30px; }
+.price span { font-size: 18px; font-weight: normal; color: #6b7280; }
+ul { list-style: none; margin-bottom: 30px; text-align: left; }
+li { padding: 12px 0; }
+.btn-pricing { width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-pricing.primary { background: #3b82f6; color: white; }
+.btn-pricing.secondary { background: #f3f4f6; color: #1f2937; }
+.footer { background: #1f2937; color: white; padding: 40px 20px; text-align: center; }
+.container { max-width: 1200px; margin: 0 auto; }
+.header { background: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; }
+.logo { font-size: 24px; font-weight: bold; }
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .hero p { font-size: 18px; }
+  .stats { gap: 30px; }
+  .pricing-card.featured { transform: scale(1); }
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="logo">🏢 NYC Leads Pro</div>
+<a href="#pricing" class="btn" style="padding: 10px 24px; font-size: 16px;">Start Free Trial</a>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1>Get 100+ Verified NYC Real Estate Leads Daily</h1>
+<p>Stop wasting money on Zillow. Get better leads for less.</p>
+<div class="stats">
+<div class="stat"><div class="stat-number">500+</div><div>Active Agents</div></div>
+<div class="stat"><div class="stat-number">50K+</div><div>Leads Delivered</div></div>
+<div class="stat"><div class="stat-number">95%</div><div>Satisfaction Rate</div></div>
+</div>
+<a href="#pricing" class="btn">Start Free Trial →</a>
+<p style="margin-top: 16px; font-size: 14px;">No credit card required • 7-day free trial • Cancel anytime</p>
+</div>
+</section>
+
+<section class="features">
+<div class="container">
+<h2>Why Choose NYC Leads Pro?</h2>
+<div class="features-grid">
+<div class="feature">
+<div style="font-size: 48px;">⚡</div>
+<h3>Fresh Leads Daily</h3>
+<p>New leads updated every morning. Never work with stale data again.</p>
+</div>
+<div class="feature">
+<div style="font-size: 48px;">✅</div>
+<h3>Verified Contacts</h3>
+<p>Every lead includes verified email and phone numbers. No more bounces.</p>
+</div>
+<div class="feature">
+<div style="font-size: 48px;">🎯</div>
+<h3>Neighborhood Targeting</h3>
+<p>Filter by specific NYC neighborhoods. Focus on your target market.</p>
+</div>
+<div class="feature">
+<div style="font-size: 48px;">📈</div>
+<h3>Lead Scoring</h3>
+<p>AI-powered scoring helps you prioritize hot leads first.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="pricing" id="pricing">
+<div class="container">
+<h2>Simple, Transparent Pricing</h2>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h3>Starter</h3>
+<div class="price">$99<span>/month</span></div>
+<ul>
+<li>✓ 100 leads/month</li>
+<li>✓ All neighborhoods</li>
+<li>✓ CSV export</li>
+<li>✓ Email support</li>
+<li>✓ 7-day free trial</li>
+</ul>
+<button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
+</div>
+<div class="pricing-card featured">
+<div class="badge">MOST POPULAR</div>
+<h3>Professional</h3>
+<div class="price">$299<span>/month</span></div>
+<ul>
+<li>✓ 500 leads/month</li>
+<li>✓ Advanced filters</li>
+<li>✓ API access</li>
+<li>✓ CRM integrations</li>
+<li>✓ Priority support</li>
+</ul>
+<button class="btn-pricing primary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
+</div>
+<div class="pricing-card">
+<h3>Enterprise</h3>
+<div class="price">Custom</div>
+<ul>
+<li>✓ Unlimited leads</li>
+<li>✓ Custom scraping</li>
+<li>✓ Dedicated manager</li>
+<li>✓ White-label option</li>
+<li>✓ SLA guarantee</li>
+</ul>
+<button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com for enterprise pricing!')">Contact Sales</button>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<p>© 2024 NYC Leads Pro. All rights reserved.</p>
+<p style="margin-top: 10px;">Contact: henrykevil40@gmail.com</p>
+</div>
+</footer>
+</body>
+</html>
