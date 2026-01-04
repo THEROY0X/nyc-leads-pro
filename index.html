@@ -3,38 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NYC Leads Pro - Premium Real Estate Lead Generation Platform</title>
+<title>NYC Leads Pro - Next-Gen Real Estate Intelligence Platform</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; 
   overflow-x: hidden;
-  background: #0a0a0a;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
 }
 
-/* Smooth Scroll */
 html { scroll-behavior: smooth; }
+
+/* Animated Grid Background */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+/* Floating Particles */
+.particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: rgba(0, 255, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 15s infinite;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+}
 
 /* Header */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.95);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px);
   padding: 20px 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  animation: slideDown 0.5s ease;
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .header .container {
@@ -47,38 +80,68 @@ html { scroll-behavior: smooth; }
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #00ffff;
+  text-transform: uppercase;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.logo-icon {
-  font-size: 32px;
-  filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+.logo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00ffff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
 }
 
 .nav-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: transparent;
+  color: #00ffff;
   padding: 12px 32px;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
+  border: 2px solid #00ffff;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #00ffff;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.nav-btn:hover::before {
+  left: 0;
 }
 
 .nav-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  color: #000000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 /* Hero Section */
@@ -87,45 +150,67 @@ html { scroll-behavior: smooth; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
   position: relative;
+  padding: 120px 40px 80px;
   overflow: hidden;
-  padding: 120px 20px 80px;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
-  top: -200px;
-  right: -200px;
-  animation: pulse 4s ease-in-out infinite;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 20s linear infinite;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(118, 75, 162, 0.3) 0%, transparent 70%);
-  bottom: -150px;
-  left: -150px;
-  animation: pulse 5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 0.8; }
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .hero-content {
-  max-width: 1400px;
+  max-width: 1200px;
   text-align: center;
   position: relative;
   z-index: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00ffff;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
   animation: fadeInUp 1s ease;
+}
+
+.hero h1 {
+  font-size: 80px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero h1 .highlight {
+  color: #00ffff;
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  margin-bottom: 60px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  animation: fadeInUp 1s ease 0.4s both;
 }
 
 @keyframes fadeInUp {
@@ -133,135 +218,155 @@ html { scroll-behavior: smooth; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.hero h1 {
-  font-size: 72px;
-  font-weight: 800;
-  margin-bottom: 24px;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #fff 0%, #667eea 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: fadeInUp 1s ease 0.2s both;
-}
-
-.hero-subtitle {
-  font-size: 28px;
-  margin-bottom: 50px;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 300;
-  animation: fadeInUp 1s ease 0.4s both;
-}
-
 .stats {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  margin: 60px 0;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin: 80px auto;
+  max-width: 900px;
   animation: fadeInUp 1s ease 0.6s both;
 }
 
 .stat {
   text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 180px;
+  padding: 30px;
+  background: rgba(0, 255, 255, 0.02);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  position: relative;
   transition: all 0.3s ease;
 }
 
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.stat:hover::before {
+  transform: scaleX(1);
+}
+
 .stat:hover {
+  background: rgba(0, 255, 255, 0.05);
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
 }
 
 .stat-number {
-  font-size: 48px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
+  font-size: 56px;
+  font-weight: 700;
+  color: #00ffff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .stat-label {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .cta-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
   animation: fadeInUp 1s ease 0.8s both;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: #00ffff;
+  color: #000000;
   padding: 18px 48px;
   border: none;
-  border-radius: 50px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
   background: transparent;
-  color: white;
+  color: #ffffff;
   padding: 18px 48px;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: #00ffff;
+  color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 .hero-note {
-  margin-top: 24px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  margin-top: 30px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
 }
 
 /* Features Section */
 .features {
   padding: 120px 40px;
-  background: #0a0a0a;
   position: relative;
+  z-index: 1;
 }
 
 .section-title {
   text-align: center;
-  font-size: 56px;
-  font-weight: 800;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 80px;
-  background: linear-gradient(135deg, #fff 0%, #667eea 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .features-grid {
@@ -273,13 +378,11 @@ html { scroll-behavior: smooth; }
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
+  background: rgba(0, 255, 255, 0.02);
+  border: 1px solid rgba(0, 255, 255, 0.2);
   padding: 50px 40px;
-  text-align: center;
-  transition: all 0.4s ease;
   position: relative;
+  transition: all 0.4s ease;
   overflow: hidden;
 }
 
@@ -288,34 +391,34 @@ html { scroll-behavior: smooth; }
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .feature-card:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+  border-color: #00ffff;
+  box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
 }
 
-.feature-icon {
-  font-size: 64px;
-  margin-bottom: 24px;
-  filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+.feature-number {
+  font-size: 14px;
+  color: #00ffff;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
 .feature-card h3 {
   font-size: 24px;
   margin-bottom: 16px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .feature-card p {
@@ -327,7 +430,8 @@ html { scroll-behavior: smooth; }
 /* Pricing Section */
 .pricing {
   padding: 120px 40px;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-grid {
@@ -339,9 +443,8 @@ html { scroll-behavior: smooth; }
 }
 
 .pricing-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 32px;
+  background: rgba(0, 255, 255, 0.02);
+  border: 1px solid rgba(0, 255, 255, 0.2);
   padding: 50px;
   position: relative;
   transition: all 0.4s ease;
@@ -349,13 +452,13 @@ html { scroll-behavior: smooth; }
 
 .pricing-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
+  border-color: #00ffff;
+  box-shadow: 0 30px 80px rgba(0, 255, 255, 0.3);
 }
 
 .pricing-card.featured {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  border: 2px solid #667eea;
+  background: rgba(0, 255, 255, 0.05);
+  border: 2px solid #00ffff;
   transform: scale(1.05);
 }
 
@@ -365,132 +468,133 @@ html { scroll-behavior: smooth; }
 
 .badge {
   position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-size: 12px;
+  top: -1px;
+  right: -1px;
+  background: #00ffff;
+  color: #000000;
+  padding: 8px 20px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  letter-spacing: 2px;
 }
 
 .pricing-card h3 {
-  font-size: 28px;
-  margin-bottom: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .price {
   font-size: 64px;
-  font-weight: 800;
+  font-weight: 700;
   margin: 30px 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
 .price span {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .pricing-features {
   list-style: none;
   margin: 40px 0;
-  text-align: left;
 }
 
 .pricing-features li {
   padding: 16px 0;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  padding-left: 30px;
 }
 
 .pricing-features li::before {
-  content: '✓';
-  color: #667eea;
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #00ffff;
   font-weight: bold;
-  font-size: 20px;
 }
 
 .btn-pricing {
   width: 100%;
   padding: 18px;
   border: none;
-  border-radius: 50px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .btn-pricing.primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+  background: #00ffff;
+  color: #000000;
 }
 
 .btn-pricing.primary:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
 }
 
 .btn-pricing.secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-pricing.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: #00ffff;
+  color: #00ffff;
 }
 
 /* Footer */
 .footer {
-  background: #0a0a0a;
+  background: #000000;
   padding: 60px 40px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .footer p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   margin: 10px 0;
-  font-size: 16px;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .footer a {
-  color: #667eea;
+  color: #00ffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #764ba2;
+  color: #ffffff;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .hero h1 { font-size: 42px; }
-  .hero-subtitle { font-size: 20px; }
-  .stats { gap: 30px; }
+  .hero-subtitle { font-size: 18px; }
+  .stats { grid-template-columns: 1fr; gap: 30px; }
   .section-title { font-size: 36px; }
   .pricing-card.featured { transform: scale(1); }
   .cta-buttons { flex-direction: column; }
   .header .container { padding: 0 20px; }
-  .logo { font-size: 22px; }
+  .logo { font-size: 18px; }
 }
 
-/* Scroll Animation */
+/* Scroll Reveal */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -505,20 +609,20 @@ html { scroll-behavior: smooth; }
 </head>
 <body>
 
+<div class="grid-background"></div>
+
 <header class="header">
   <div class="container">
-    <div class="logo">
-      <span class="logo-icon">🏢</span>
-      <span>NYC Leads Pro</span>
-    </div>
-    <a href="#pricing" class="nav-btn">Start Free Trial</a>
+    <div class="logo">NYC LEADS PRO</div>
+    <a href="#pricing" class="nav-btn">Initialize Trial</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Get 100+ Verified NYC<br>Real Estate Leads Daily</h1>
-    <p class="hero-subtitle">Stop wasting money on Zillow. Get better leads for less.</p>
+    <div class="hero-tag">Next-Gen Intelligence Platform</div>
+    <h1>Dominate NYC Real Estate<br>With <span class="highlight">AI-Powered Leads</span></h1>
+    <p class="hero-subtitle">Advanced lead generation system delivering 100+ verified contacts daily.<br>Precision targeting. Zero waste.</p>
     
     <div class="stats">
       <div class="stat">
@@ -527,103 +631,115 @@ html { scroll-behavior: smooth; }
       </div>
       <div class="stat">
         <div class="stat-number">50K+</div>
-        <div class="stat-label">Leads Delivered</div>
+        <div class="stat-label">Leads Deployed</div>
       </div>
       <div class="stat">
         <div class="stat-number">95%</div>
-        <div class="stat-label">Satisfaction Rate</div>
+        <div class="stat-label">Success Rate</div>
       </div>
     </div>
 
     <div class="cta-buttons">
-      <a href="#pricing" class="btn-primary">Start Free Trial →</a>
-      <a href="#features" class="btn-secondary">Learn More</a>
+      <a href="#pricing" class="btn-primary">Access Platform</a>
+      <a href="#features" class="btn-secondary">System Overview</a>
     </div>
     
-    <p class="hero-note">No credit card required • 7-day free trial • Cancel anytime</p>
+    <p class="hero-note">NO CREDIT CARD • 7-DAY TRIAL • CANCEL ANYTIME</p>
   </div>
 </section>
 
 <section class="features" id="features">
-  <h2 class="section-title">Why Choose NYC Leads Pro?</h2>
+  <h2 class="section-title">System Capabilities</h2>
+  <p class="section-subtitle">Military-grade lead intelligence for modern real estate professionals</p>
   <div class="features-grid">
     <div class="feature-card fade-in">
-      <div class="feature-icon">⚡</div>
-      <h3>Fresh Leads Daily</h3>
-      <p>New leads updated every morning. Never work with stale data again. Get real-time access to the hottest opportunities.</p>
+      <div class="feature-number">01</div>
+      <h3>Real-Time Data Streams</h3>
+      <p>Live lead updates every morning. Access the freshest opportunities before your competition. Automated data refresh ensures zero stale contacts.</p>
     </div>
     <div class="feature-card fade-in">
-      <div class="feature-icon">✅</div>
-      <h3>Verified Contacts</h3>
-      <p>Every lead includes verified email and phone numbers. No more bounces or dead ends. Connect directly with decision makers.</p>
+      <div class="feature-number">02</div>
+      <h3>Verified Contact Matrix</h3>
+      <p>Every lead includes verified email and phone numbers. Multi-layer validation system eliminates bounces and dead ends. Direct access to decision makers.</p>
     </div>
     <div class="feature-card fade-in">
-      <div class="feature-icon">🎯</div>
-      <h3>Neighborhood Targeting</h3>
-      <p>Filter by specific NYC neighborhoods. Focus on your target market with precision. Manhattan, Brooklyn, Queens, and more.</p>
+      <div class="feature-number">03</div>
+      <h3>Precision Geo-Targeting</h3>
+      <p>Hyper-local filtering by NYC neighborhoods. Manhattan, Brooklyn, Queens, Bronx, Staten Island. Focus your efforts where it matters most.</p>
     </div>
     <div class="feature-card fade-in">
-      <div class="feature-icon">📈</div>
-      <h3>AI Lead Scoring</h3>
-      <p>AI-powered scoring helps you prioritize hot leads first. Maximize your time and close more deals faster.</p>
+      <div class="feature-number">04</div>
+      <h3>AI Lead Scoring Engine</h3>
+      <p>Machine learning algorithms rank leads by conversion probability. Prioritize hot prospects automatically. Maximize ROI on every contact.</p>
     </div>
   </div>
 </section>
 
 <section class="pricing" id="pricing">
-  <h2 class="section-title">Simple, Transparent Pricing</h2>
+  <h2 class="section-title">Access Tiers</h2>
+  <p class="section-subtitle">Choose your deployment level</p>
   <div class="pricing-grid">
     <div class="pricing-card fade-in">
       <h3>Starter</h3>
       <div class="price">$99<span>/month</span></div>
       <ul class="pricing-features">
-        <li>100 leads/month</li>
+        <li>100 leads per month</li>
         <li>All NYC neighborhoods</li>
-        <li>CSV export</li>
-        <li>Email support</li>
-        <li>7-day free trial</li>
+        <li>CSV data export</li>
+        <li>Email support channel</li>
+        <li>7-day trial access</li>
       </ul>
-      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
+      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com to initialize your trial access')">Initialize Trial</button>
     </div>
     
     <div class="pricing-card featured fade-in">
-      <div class="badge">MOST POPULAR</div>
+      <div class="badge">RECOMMENDED</div>
       <h3>Professional</h3>
       <div class="price">$299<span>/month</span></div>
       <ul class="pricing-features">
-        <li>500 leads/month</li>
-        <li>Advanced filters</li>
-        <li>API access</li>
-        <li>CRM integrations</li>
-        <li>Priority support</li>
+        <li>500 leads per month</li>
+        <li>Advanced filter system</li>
+        <li>API integration access</li>
+        <li>CRM connectors</li>
+        <li>Priority support channel</li>
         <li>Lead refresh guarantee</li>
       </ul>
-      <button class="btn-pricing primary" onclick="alert('Contact: henrykevil40@gmail.com to start your free trial!')">Start Free Trial</button>
+      <button class="btn-pricing primary" onclick="alert('Contact: henrykevil40@gmail.com to initialize your trial access')">Initialize Trial</button>
     </div>
     
     <div class="pricing-card fade-in">
       <h3>Enterprise</h3>
       <div class="price">Custom</div>
       <ul class="pricing-features">
-        <li>Unlimited leads</li>
-        <li>Custom scraping</li>
+        <li>Unlimited lead access</li>
+        <li>Custom data scraping</li>
         <li>Dedicated account manager</li>
-        <li>White-label option</li>
+        <li>White-label deployment</li>
         <li>SLA guarantee</li>
         <li>Custom integrations</li>
       </ul>
-      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com for enterprise pricing!')">Contact Sales</button>
+      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com for enterprise deployment')">Contact Command</button>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <p>© 2026 NYC Leads Pro. All rights reserved.</p>
-  <p>Contact: <a href="mailto:henrykevil40@gmail.com">henrykevil40@gmail.com</a></p>
-  <p style="margin-top: 20px; font-size: 14px;">Built with ❤️ for NYC real estate professionals</p>
+  <p>© 2026 NYC LEADS PRO. ALL SYSTEMS OPERATIONAL.</p>
+  <p>COMMAND CENTER: <a href="mailto:henrykevil40@gmail.com">henrykevil40@gmail.com</a></p>
+  <p style="margin-top: 20px; font-size: 12px;">BUILT FOR NYC REAL ESTATE PROFESSIONALS</p>
 </footer>
 
 <script>
+// Create floating particles
+for(let i = 0; i < 20; i++) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  particle.style.left = Math.random() * 100 + '%';
+  particle.style.animationDelay = Math.random() * 15 + 's';
+  particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+  document.body.appendChild(particle);
+}
+
 // Scroll Animation
 const observerOptions = {
   threshold: 0.1,
