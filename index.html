@@ -19,417 +19,198 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
+  overflow-x: hidden;
 }
 
 html { scroll-behavior: smooth; }
 
 /* Header */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
   z-index: 1000;
+  padding: 20px 0;
 }
 
 .header .container {
-  max-width: 980px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 44px;
 }
 
 .logo {
-  font-size: 21px;
-  font-weight: 600;
-  color: #f5f5f7;
-  letter-spacing: -0.01em;
+  font-size: 20px;
+  font-weight: 700;
+  color: #00ffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00ffff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
 }
 
 .nav-btn {
-  background: #0071e3;
-  color: #ffffff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 980px;
-  font-size: 12px;
-  font-weight: 400;
+  background: transparent;
+  color: #00ffff;
+  padding: 12px 32px;
+  border: 2px solid #00ffff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-  background: #0077ed;
+  background: #00ffff;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 /* Hero Section */
 .hero {
-  padding: 80px 22px 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background: #000000;
+  padding: 120px 40px 80px;
+  position: relative;
 }
 
 .hero-content {
-  max-width: 980px;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-tag {
-  font-size: 17px;
-  line-height: 1.23536;
+  display: inline-block;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: -0.022em;
-  color: #86868b;
-  margin-bottom: 8px;
+  letter-spacing: 3px;
+  color: #00ffff;
+  margin-bottom: 32px;
+  padding: 8px 24px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  text-transform: uppercase;
 }
 
 .hero h1 {
-  font-size: 64px;
-  line-height: 1.0625;
-  font-weight: 600;
-  letter-spacing: -0.009em;
-  color: #f5f5f7;
-  margin-bottom: 16px;
+  font-size: 80px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin-bottom: 32px;
+}
+
+.hero h1 .highlight {
+  color: #00ffff;
+  display: block;
 }
 
 .hero-subtitle {
-  font-size: 28px;
-  line-height: 1.14286;
+  font-size: 24px;
+  line-height: 1.5;
   font-weight: 400;
-  letter-spacing: 0.007em;
   color: #a1a1a6;
-  margin-bottom: 24px;
-  max-width: 800px;
+  margin-bottom: 48px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 24px;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: #0071e3;
-  color: #ffffff;
-  padding: 12px 22px;
-  border: none;
-  border-radius: 980px;
-  font-size: 17px;
-  font-weight: 400;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  min-width: 28px;
-}
-
-.btn-primary:hover {
-  background: #0077ed;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #2997ff;
-  padding: 12px 22px;
-  border: none;
-  border-radius: 980px;
-  font-size: 17px;
-  font-weight: 400;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  text-decoration: underline;
-}
-
-.hero-note {
-  margin-top: 16px;
-  font-size: 14px;
-  color: #86868b;
-}
-
 /* Stats Section */
 .stats-section {
-  background: #161617;
-  padding: 60px 22px;
+  padding: 80px 40px;
+  background: #000000;
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  max-width: 980px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .stat {
   text-align: center;
+  padding: 60px 40px;
+  background: rgba(0, 255, 255, 0.03);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  background: rgba(0, 255, 255, 0.05);
+  border-color: rgba(0, 255, 255, 0.4);
+  transform: translateY(-5px);
 }
 
 .stat-number {
-  font-size: 56px;
-  line-height: 1.07143;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  color: #f5f5f7;
-  margin-bottom: 8px;
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #00ffff;
+  margin-bottom: 16px;
 }
 
 .stat-label {
-  font-size: 17px;
-  line-height: 1.23536;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  color: #86868b;
-}
-
-/* Features Section */
-.features {
-  padding: 100px 22px;
-  background: #000000;
-}
-
-.section-header {
-  text-align: center;
-  max-width: 980px;
-  margin: 0 auto 60px;
-}
-
-.section-title {
-  font-size: 48px;
-  line-height: 1.08349;
-  font-weight: 600;
-  letter-spacing: -0.003em;
-  color: #f5f5f7;
-  margin-bottom: 12px;
-}
-
-.section-subtitle {
-  font-size: 21px;
-  line-height: 1.381;
-  font-weight: 400;
-  letter-spacing: 0.011em;
-  color: #86868b;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: #161617;
-  border-radius: 18px;
-  padding: 48px 40px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.feature-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.feature-number {
-  font-size: 14px;
-  font-weight: 600;
-  color: #2997ff;
-  margin-bottom: 12px;
-  letter-spacing: -0.016em;
-}
-
-.feature-card h3 {
-  font-size: 28px;
-  line-height: 1.14286;
-  font-weight: 600;
-  letter-spacing: 0.007em;
-  color: #f5f5f7;
-  margin-bottom: 12px;
-}
-
-.feature-card p {
-  font-size: 17px;
-  line-height: 1.47059;
-  font-weight: 400;
-  letter-spacing: -0.022em;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 2px;
   color: #a1a1a6;
-}
-
-/* Pricing Section */
-.pricing {
-  padding: 100px 22px;
-  background: #161617;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.pricing-card {
-  background: #1d1d1f;
-  border-radius: 18px;
-  padding: 48px 40px;
-  position: relative;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.pricing-card:hover {
-  transform: scale(1.02);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.pricing-card.featured {
-  background: #f5f5f7;
-  color: #1d1d1f;
-  border: none;
-}
-
-.pricing-card.featured .pricing-card-title,
-.pricing-card.featured .price,
-.pricing-card.featured .pricing-features li {
-  color: #1d1d1f;
-}
-
-.pricing-card.featured .pricing-features li {
-  border-bottom-color: rgba(0, 0, 0, 0.1);
-}
-
-.badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: #0071e3;
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.pricing-card-title {
-  font-size: 17px;
-  line-height: 1.23536;
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  color: #f5f5f7;
-  margin-bottom: 8px;
-}
-
-.price {
-  font-size: 48px;
-  line-height: 1.08349;
-  font-weight: 600;
-  letter-spacing: -0.003em;
-  color: #f5f5f7;
-  margin: 24px 0;
-}
-
-.price span {
-  font-size: 17px;
-  font-weight: 400;
-  color: #86868b;
-}
-
-.pricing-card.featured .price span {
-  color: #6e6e73;
-}
-
-.pricing-features {
-  list-style: none;
-  margin: 32px 0;
-}
-
-.pricing-features li {
-  padding: 12px 0;
-  font-size: 14px;
-  line-height: 1.42859;
-  font-weight: 400;
-  letter-spacing: -0.016em;
-  color: #a1a1a6;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.pricing-features li:last-child {
-  border-bottom: none;
-}
-
-.btn-pricing {
-  width: 100%;
-  padding: 12px 22px;
-  border: none;
-  border-radius: 980px;
-  font-size: 17px;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-pricing.primary {
-  background: #0071e3;
-  color: #ffffff;
-}
-
-.btn-pricing.primary:hover {
-  background: #0077ed;
-}
-
-.btn-pricing.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: #f5f5f7;
-}
-
-.btn-pricing.secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.btn-pricing.dark {
-  background: #1d1d1f;
-  color: #f5f5f7;
-}
-
-.btn-pricing.dark:hover {
-  background: #2d2d2f;
+  text-transform: uppercase;
 }
 
 /* Footer */
 .footer {
   background: #000000;
-  padding: 40px 22px;
+  padding: 40px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .footer p {
-  font-size: 12px;
-  line-height: 1.33337;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-size: 14px;
   color: #86868b;
   margin: 8px 0;
 }
 
 .footer a {
-  color: #2997ff;
+  color: #00ffff;
   text-decoration: none;
 }
 
@@ -439,19 +220,21 @@ html { scroll-behavior: smooth; }
 
 /* Responsive */
 @media (max-width: 1068px) {
-  .hero h1 { font-size: 48px; }
-  .hero-subtitle { font-size: 21px; }
-  .section-title { font-size: 40px; }
+  .hero h1 { font-size: 64px; }
+  .hero-subtitle { font-size: 20px; }
+  .stat-number { font-size: 56px; }
 }
 
 @media (max-width: 734px) {
-  .hero h1 { font-size: 32px; }
-  .hero-subtitle { font-size: 19px; }
-  .stats { grid-template-columns: 1fr; gap: 32px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .cta-buttons { flex-direction: column; }
-  .section-title { font-size: 32px; }
+  .header .container { padding: 0 20px; }
+  .hero { padding: 100px 20px 60px; }
+  .hero h1 { font-size: 40px; }
+  .hero-subtitle { font-size: 18px; }
+  .stats { grid-template-columns: 1fr; gap: 20px; }
+  .stat { padding: 40px 20px; }
+  .stat-number { font-size: 48px; }
+  .logo { font-size: 16px; }
+  .nav-btn { padding: 10px 20px; font-size: 12px; }
 }
 </style>
 </head>
@@ -459,23 +242,24 @@ html { scroll-behavior: smooth; }
 
 <header class="header">
   <div class="container">
-    <div class="logo">NYC Leads Pro</div>
-    <a href="#pricing" class="nav-btn">Get started</a>
+    <div class="logo">NYC LEADS PRO</div>
+    <a href="mailto:henrykevil40@gmail.com" class="nav-btn">Initialize Trial</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <p class="hero-tag">Real Estate Intelligence Platform</p>
-    <h1>Why NYC Leads Pro is the best place to get leads.</h1>
-    <p class="hero-subtitle">Advanced lead generation system delivering 100+ verified contacts daily. Precision targeting. Zero waste.</p>
+    <div class="hero-tag">Next-Gen Intelligence Platform</div>
     
-    <div class="cta-buttons">
-      <a href="#pricing" class="btn-primary">Start free trial</a>
-      <a href="#features" class="btn-secondary">Learn more</a>
-    </div>
+    <h1>
+      Dominate NYC Real Estate<br>
+      With <span class="highlight">AI-Powered Leads</span>
+    </h1>
     
-    <p class="hero-note">No credit card required • 7-day trial • Cancel anytime</p>
+    <p class="hero-subtitle">
+      Advanced lead generation system delivering 100+ verified contacts daily.<br>
+      Precision targeting. Zero waste.
+    </p>
   </div>
 </section>
 
@@ -483,99 +267,15 @@ html { scroll-behavior: smooth; }
   <div class="stats">
     <div class="stat">
       <div class="stat-number">500+</div>
-      <div class="stat-label">Active agents</div>
+      <div class="stat-label">Active Agents</div>
     </div>
     <div class="stat">
       <div class="stat-number">50K+</div>
-      <div class="stat-label">Leads deployed</div>
+      <div class="stat-label">Leads Deployed</div>
     </div>
     <div class="stat">
       <div class="stat-number">95%</div>
-      <div class="stat-label">Success rate</div>
-    </div>
-  </div>
-</section>
-
-<section class="features" id="features">
-  <div class="section-header">
-    <h2 class="section-title">Get more from your leads.</h2>
-    <p class="section-subtitle">Everything you need to dominate NYC real estate.</p>
-  </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-number">Real-Time Data</div>
-      <h3>Fresh leads every morning.</h3>
-      <p>Access the freshest opportunities before your competition. Automated data refresh ensures zero stale contacts.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="feature-number">Verified Contacts</div>
-      <h3>Direct access to decision makers.</h3>
-      <p>Every lead includes verified email and phone numbers. Multi-layer validation system eliminates bounces and dead ends.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="feature-number">Geo-Targeting</div>
-      <h3>Focus where it matters most.</h3>
-      <p>Hyper-local filtering by NYC neighborhoods. Manhattan, Brooklyn, Queens, Bronx, Staten Island.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="feature-number">AI Lead Scoring</div>
-      <h3>Prioritize hot prospects automatically.</h3>
-      <p>Machine learning algorithms rank leads by conversion probability. Maximize ROI on every contact.</p>
-    </div>
-  </div>
-</section>
-
-<section class="pricing" id="pricing">
-  <div class="section-header">
-    <h2 class="section-title">Choose the plan that's right for you.</h2>
-    <p class="section-subtitle">All plans include a 7-day free trial.</p>
-  </div>
-  
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <h3 class="pricing-card-title">Starter</h3>
-      <div class="price">$99<span>/mo</span></div>
-      <ul class="pricing-features">
-        <li>100 leads per month</li>
-        <li>All NYC neighborhoods</li>
-        <li>CSV data export</li>
-        <li>Email support</li>
-        <li>7-day trial</li>
-      </ul>
-      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com to start your trial')">Start trial</button>
-    </div>
-    
-    <div class="pricing-card featured">
-      <div class="badge">Popular</div>
-      <h3 class="pricing-card-title">Professional</h3>
-      <div class="price">$299<span>/mo</span></div>
-      <ul class="pricing-features">
-        <li>500 leads per month</li>
-        <li>Advanced filters</li>
-        <li>API integration</li>
-        <li>CRM connectors</li>
-        <li>Priority support</li>
-        <li>Lead refresh guarantee</li>
-      </ul>
-      <button class="btn-pricing primary" onclick="alert('Contact: henrykevil40@gmail.com to start your trial')">Start trial</button>
-    </div>
-    
-    <div class="pricing-card">
-      <h3 class="pricing-card-title">Enterprise</h3>
-      <div class="price">Custom</div>
-      <ul class="pricing-features">
-        <li>Unlimited leads</li>
-        <li>Custom data scraping</li>
-        <li>Dedicated account manager</li>
-        <li>White-label deployment</li>
-        <li>SLA guarantee</li>
-        <li>Custom integrations</li>
-      </ul>
-      <button class="btn-pricing secondary" onclick="alert('Contact: henrykevil40@gmail.com for enterprise pricing')">Contact us</button>
+      <div class="stat-label">Success Rate</div>
     </div>
   </div>
 </section>
